@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration name="example-config">
+	<Appenders>
+
+		<RollingFile name="fileWriter"
+			fileName="/appserver/j2eeprojects/config/BugTracker/logs/BugTracker.log"
+			filePattern="/appserver/j2eeprojects/config/BugTracker/logs/BugTracker.log.%d{yyyy-MM-dd}.gz">
+			<PatternLayout
+				pattern="[%d{dd MMM yy HH:mm:ss:SSS}] [%p]- %X{referenceNumber} - [%t %l]- %m%n" />
+			<TimeBasedTriggeringPolicy />
+			<SizeBasedTriggeringPolicy size="1 GB" />
+		</RollingFile>
+
+	</Appenders>
+	<Loggers>
+		<Root level="all">
+			<appender-ref ref="fileWriter" />
+		</Root>
+	</Loggers>
+</Configuration>
